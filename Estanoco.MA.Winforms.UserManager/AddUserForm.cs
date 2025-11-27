@@ -21,13 +21,22 @@ namespace Estanoco.MA.Winforms.UserManager
             }
             else
             {
-                User userToSave = new User(fullName, userName, password);
+                User userToSave = new User();
+                userToSave.Username = userName;
+                userToSave.Fullname = fullName;
+                userToSave.Password = password;
+
                 UserRepository repository = new UserRepository();
                 bool isSaved = repository.Add(userToSave);
 
                 if (isSaved)
                 {
                     MessageBox.Show("Boy na saved na!", "Successful",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtfullname.Clear();
+                    txtusername.Clear();
+                    txtpassword.Clear();
+                    
+
                 }
             }
         }

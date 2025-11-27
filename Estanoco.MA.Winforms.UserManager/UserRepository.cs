@@ -9,23 +9,37 @@ namespace Estanoco.MA.Winforms.UserManager
 {
     public class UserRepository
     {
-        private readonly ISQLiteConnection connection;
+        private readonly ISQLiteConnection _connection;
         public UserRepository()
         {
-            connection = new SQLiteConnection("userdate.db");
+            string databasePath = Path.Combine(
+                Environment.GetFolderPath(
+                    Environment.SpecialFolder.MyDocuments),
+                "UserData.db");
+            
+            _connection = new SQLiteConnection(databasePath);
+            _connection.CreateTable<User>();
         }
+
      
+
         public bool Add(User user)
         {
+            _connection.Insert(user);
             return true;
         }
+
+
+
         public List<User> GetAll()
             {
-            return new List<User>();
+            
+            return _connection.Table<User>().ToList();
+
             }
     public User Get(int id)
         {
-            return new User("DummyFullname", "DummyUsername", "DummyPassword");
+            return _connection.Find<User>(id);
         }
 
     }

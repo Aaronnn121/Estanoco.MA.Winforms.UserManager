@@ -3,17 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SQLite;
 
 namespace Estanoco.MA.Winforms.UserManager
 {
     public class User
     {
-        public User(string fullname, string username, string password) 
-        { 
-            this.Fullname = fullname;
-            this.Username = username;
-            this.Password = password;
-        }
+       
+        [PrimaryKey,AutoIncrement] 
         public int Id { get; set; }
         public string Fullname { get; set; }
         public string Username {  get; set; }

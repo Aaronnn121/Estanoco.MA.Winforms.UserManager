@@ -28,20 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
+            dgViewUsers = new DataGridView();
             label1 = new Label();
-            button1 = new Button();
+            btnNew = new Button();
             button2 = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            btnRefresh = new Button();
+            ((System.ComponentModel.ISupportInitialize)dgViewUsers).BeginInit();
             SuspendLayout();
             // 
-            // dataGridView1
+            // dgViewUsers
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(70, 105);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(283, 240);
-            dataGridView1.TabIndex = 0;
+            dgViewUsers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgViewUsers.Location = new Point(70, 105);
+            dgViewUsers.Name = "dgViewUsers";
+            dgViewUsers.Size = new Size(283, 240);
+            dgViewUsers.TabIndex = 0;
+            dgViewUsers.CellContentClick += dgViewUsers_CellContentClick;
             // 
             // label1
             // 
@@ -54,23 +56,34 @@
             label1.TabIndex = 1;
             label1.Text = "List of Users";
             // 
-            // button1
+            // btnNew
             // 
-            button1.Location = new Point(92, 367);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 2;
-            button1.Text = "NEW";
-            button1.UseVisualStyleBackColor = true;
+            btnNew.Location = new Point(70, 367);
+            btnNew.Name = "btnNew";
+            btnNew.Size = new Size(283, 23);
+            btnNew.TabIndex = 2;
+            btnNew.Text = "NEW";
+            btnNew.UseVisualStyleBackColor = true;
+            btnNew.Click += btnNew_Click;
             // 
             // button2
             // 
-            button2.Location = new Point(251, 367);
+            button2.Location = new Point(70, 396);
             button2.Name = "button2";
-            button2.Size = new Size(75, 23);
+            button2.Size = new Size(283, 23);
             button2.TabIndex = 3;
             button2.Text = "VIEW";
             button2.UseVisualStyleBackColor = true;
+            // 
+            // btnRefresh
+            // 
+            btnRefresh.Location = new Point(70, 338);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(283, 23);
+            btnRefresh.TabIndex = 4;
+            btnRefresh.Text = "REFRESH";
+            btnRefresh.UseVisualStyleBackColor = true;
+            btnRefresh.Click += btnRefresh_Click;
             // 
             // ListUsersForm
             // 
@@ -79,23 +92,25 @@
             BackgroundImage = Properties.Resources._69237;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(450, 450);
+            Controls.Add(btnRefresh);
             Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(btnNew);
             Controls.Add(label1);
-            Controls.Add(dataGridView1);
+            Controls.Add(dgViewUsers);
             DoubleBuffered = true;
             Name = "ListUsersForm";
             Text = "ListUsersForm";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgViewUsers).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private DataGridView dgViewUsers;
         private Label label1;
-        private Button button1;
+        private Button btnNew;
         private Button button2;
+        private Button btnRefresh;
     }
 }
